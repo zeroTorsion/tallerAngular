@@ -1,6 +1,6 @@
 import { OwnerService } from './owner.service';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder } from '@angular/Forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/Forms';
 
 
 @Component({
@@ -21,8 +21,14 @@ export class OwnerComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dataForm = this.createDataFormGroup();
-
+    // this.dataForm = this.createDataFormGroup();
+    this.dataForm = this.formBuilder.group({
+      firstName: ['',Validators.required],
+      lastName: ['',Validators.required],
+      adress:new FormControl(),
+      city:['',Validators.required],
+      telephone:['',[Validators.required, Validators.minLength(6)]]
+    });
     this.ownerService.getOwners().subscribe(data => {
       this.owners = data;
     });
@@ -34,7 +40,8 @@ export class OwnerComponent implements OnInit {
      adress: new FormControl(),
       city: new FormControl(),
       telephone: new FormControl()
-    })
+    });
+
   }
   sendDataForm(){
     const body = this.dataForm.value;
