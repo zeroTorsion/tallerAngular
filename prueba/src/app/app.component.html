@@ -1,0 +1,28 @@
+ The content below is only a placeholder and can be replaced.
+<div style="text-align:center">
+  <h1>
+    Bienvenido a el proyecto:  {{ title }}!
+  </h1>
+  <img width="300" alt="Bandera" src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Bandera_de_Andalucia.svg">
+</div>
+
+<!-- Así se crea -->
+<input type = "text" [(ngModel)]="tuTexto">
+ Tu texto:  {{tuTexto}}
+
+
+
+
+<h2 style = "color: red">Here are some links to help you start: </h2>
+<ul>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://mail.google.com/mail/u/0/#inbox">Correo</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="http://zonacentro.everis.int/">Información de Everis</a></h2>
+  </li>
+
+</ul>
+<app-search [label]="buscar" [placeholder]="texto" [tuTexto]="tuTexto" (searchEvent)="eventSearchParent($event)" (teclasHaciaPadre)="escuchaLetra($event)" [textoLetras]="textoLetras"> </app-search>
+<app-owner> </app-owner>
+<router-outlet></router-outlet>

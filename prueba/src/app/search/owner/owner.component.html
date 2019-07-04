@@ -1,0 +1,18 @@
+<!-- <button type="button" (click)=postOwnerFromComponent()>Añadir</button> -->
+
+
+
+<form [formGroup] = "dataForm" (ngSubmit)="sendDataForm()" novalidate >
+    <input formControlName = "firstName" />
+    <input formControlName = "lastName" />
+    <input formControlName = "adress" />
+    <input formControlName = "city" />
+    <input formControlName = "telephone" />
+    <button type = "submit" [disabled]="dataForm.pristine" >Guarda</button>
+</form>
+
+<ul>
+  <li *ngFor = "let owner of owners; let i = index;">
+    Los usuarios con id : {{owners[i].id}} son {{owners[i].firstName}} 
+  </li>
+</ul>

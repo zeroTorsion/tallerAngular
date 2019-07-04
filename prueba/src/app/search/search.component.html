@@ -1,0 +1,15 @@
+<h1>Buscador</h1>
+<form>
+  <input type = "text" name = "query" [(ngModel)]="query" placeholder="{{placeholder}}"/>
+  <button type="button" (click)=escribeTexto()>{{label}}</button>
+  <!-- <input type = "submit" value="Buscar" (click)="escribeTexto()"/> -->
+  <p>Parametro de búsqueda: {{query}}</p>
+  <p>El resultado es: {{result}} </p>
+  <p>El valor del padre es: {{tuTexto}}</p>
+  <input type = "text" name = "letra" [(ngModel)]="letra" placeholder="Teclea letra a letra"/>
+  <button type="button" (onkeyup)=teclas()>El de las teclas</button>
+  <span>Letras una a una: {{textoLetras}}</span>
+
+  </form>
+
+
